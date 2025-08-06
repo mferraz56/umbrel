@@ -77,4 +77,4 @@ chmod -R 700 "$mount/tor/data/*" &>/dev/null || true
 trap - ERR
 cd /opt/umbreld
 
-exec ./umbreld --data-directory "$mount" --log-level verbose --log-format json --network "$net" --target "$target" --listen-address
+exec ./umbreld --data-directory "$mount" --log-level verbose 
