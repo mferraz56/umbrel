@@ -97,9 +97,9 @@ COPY --from=be-build --chmod=755 /opt/umbreld /opt/umbreld
 
 # Add healthcheck
 HEALTHCHECK --interval=30s --timeout=10s --start-period=60s --retries=3 \
-  CMD curl -f http://localhost:80/ || exit 1
+  CMD curl -f http://localhost:12000/ || exit 1
 
 VOLUME /data
-EXPOSE 80 443 12000
+EXPOSE 12000
 
 ENTRYPOINT ["/usr/bin/tini", "-s", "/run/entry.sh"]
