@@ -100,6 +100,6 @@ HEALTHCHECK --interval=30s --timeout=10s --start-period=60s --retries=3 \
   CMD curl -f http://localhost:8443/ || exit 1
 
 VOLUME /data
-EXPOSE 80 8443
+EXPOSE 80 8444
 
 ENTRYPOINT ["/usr/bin/tini", "-s", "/run/entry.sh"]
