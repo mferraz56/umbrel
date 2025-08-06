@@ -95,6 +95,10 @@ RUN set -eu \
 COPY --chmod=755 ./entry.sh /run/
 COPY --from=be-build --chmod=755 /opt/umbreld /opt/umbreld
 
+# Add healthcheck
+HEALTHCHECK --interval=30s --timeout=10s --start-period=60s --retries=3 \
+  CMD curl -f http://localhost:80/ || exit 1
+
 VOLUME /data
 EXPOSE 80 443 12000
 
